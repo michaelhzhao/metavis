@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>LongformReader</title>
+        
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.10.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.10.min.css" type="text/css" />
+        
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.10.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.10.min.js"></script>
+<script type="text/javascript">
+    Bokeh.set_log_level("info");
+</script>
+        <style>
+          html {
+            width: 100%;
+            height: 100%;
+          }
+          body {
+            width: 90%;
+            height: 100%;
+            margin: auto;
+          }
+        </style>
+    </head>
+    <body>
+        
+        <div class="bk-root">
+            <div class="bk-plotdiv" id="7aa61508-c4a2-477b-8426-e19b578d0384"></div>
+        </div>
+        
+        <script type="text/javascript">
+            (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  var docs_json = {"3fba9c65-6009-477b-9a53-f8bb7645a134":{"roots":{"references":[{"attributes":{"children":[{"id":"692033db-d21f-4838-a6dd-74e3e496399d","type":"WidgetBox"},{"id":"24349ff0-8ef1-4b78-bf03-b58b1b94b8b6","type":"WidgetBox"}]},"id":"1b4ccec3-99ea-4b6d-9131-f7c024184b67","type":"Column"},{"attributes":{"editor":{"id":"04c09310-23f9-4f42-b61f-adab2bb9d970","type":"StringEditor"},"field":"Measure","formatter":{"id":"4b4beff5-cbc1-4931-aa5c-4515fdc8ea11","type":"StringFormatter"},"title":"Measure","width":100},"id":"c5c7cc21-971b-4097-b6a1-f6abfe33037f","type":"TableColumn"},{"attributes":{},"id":"7f658655-e25a-44b4-9848-e3593300ea05","type":"StringEditor"},{"attributes":{},"id":"4b4beff5-cbc1-4931-aa5c-4515fdc8ea11","type":"StringFormatter"},{"attributes":{"editor":{"id":"540cdeec-c8ef-41c9-8e6f-453db426f838","type":"StringEditor"},"field":"Value","formatter":{"id":"566728f5-54d7-4687-9e28-68df8b455c32","type":"StringFormatter"},"title":"Value","width":100},"id":"a41ef801-9640-48e8-be79-8a3def07aaed","type":"TableColumn"},{"attributes":{"editor":{"id":"7f658655-e25a-44b4-9848-e3593300ea05","type":"StringEditor"},"field":"PtID","formatter":{"id":"b51bd6f7-acfb-4bb5-bdc1-1f08cbc11b7e","type":"StringFormatter"},"title":"PtID","width":150},"id":"bdaad53a-54fb-4720-b248-c842f1f99065","type":"TableColumn"},{"attributes":{},"id":"04c09310-23f9-4f42-b61f-adab2bb9d970","type":"StringEditor"},{"attributes":{},"id":"ded25e12-f220-4567-8d73-5ee671ef5887","type":"StringFormatter"},{"attributes":{},"id":"40af2afb-b468-4d71-bef2-7fa3baef2653","type":"StringEditor"},{"attributes":{},"id":"566728f5-54d7-4687-9e28-68df8b455c32","type":"StringFormatter"},{"attributes":{},"id":"3e405291-96f5-452b-aff3-fc509eb4a7d6","type":"StringEditor"},{"attributes":{"callback":null,"column_names":["PtID","Measure","MeasureMD","PatientMD","Value","index"],"data":{"Measure":["Blue","Red","Blue","Red","Blue","Red","Blue","Red","Blue","Red"],"MeasureMD":["A","B","A","B","A","B","A","B","A","B"],"PatientMD":["Male","Male","Female","Female","Female","Female","Male","Male","Male","Male"],"PtID":[1,1,2,2,3,3,4,4,5,5],"Value":[88,11,4,74,64,46,55,7,18,36],"index":[0,1,2,3,4,5,6,7,8,9]}},"id":"1bd3ee28-8161-4a6e-98d2-f3b4c486741f","type":"ColumnDataSource"},{"attributes":{"columns":[{"id":"bdaad53a-54fb-4720-b248-c842f1f99065","type":"TableColumn"},{"id":"c5c7cc21-971b-4097-b6a1-f6abfe33037f","type":"TableColumn"},{"id":"82169fbb-a569-47e3-b1f6-334a43cc2b9d","type":"TableColumn"},{"id":"77dd3c89-9dd4-4f83-ba4d-706b182f92a8","type":"TableColumn"},{"id":"a41ef801-9640-48e8-be79-8a3def07aaed","type":"TableColumn"}],"height":280,"reorderable":false,"source":{"id":"1bd3ee28-8161-4a6e-98d2-f3b4c486741f","type":"ColumnDataSource"},"view":{"id":"09329ac2-cdfa-41f7-9691-79db14553836","type":"CDSView"},"width":525},"id":"48ee1007-9ff9-42af-aff5-7331b7a44f96","type":"DataTable"},{"attributes":{},"id":"64955dd9-1be0-4878-9900-5d44bed44e13","type":"StringFormatter"},{"attributes":{"editor":{"id":"3e405291-96f5-452b-aff3-fc509eb4a7d6","type":"StringEditor"},"field":"PatientMD","formatter":{"id":"64955dd9-1be0-4878-9900-5d44bed44e13","type":"StringFormatter"},"title":"PatientMD","width":100},"id":"77dd3c89-9dd4-4f83-ba4d-706b182f92a8","type":"TableColumn"},{"attributes":{"source":{"id":"1bd3ee28-8161-4a6e-98d2-f3b4c486741f","type":"ColumnDataSource"}},"id":"09329ac2-cdfa-41f7-9691-79db14553836","type":"CDSView"},{"attributes":{"callback":null,"data":{}},"id":"43656e8c-2cbf-40e4-b421-d0a2471d4bc8","type":"ColumnDataSource"},{"attributes":{"args":{"source":{"id":"43656e8c-2cbf-40e4-b421-d0a2471d4bc8","type":"ColumnDataSource"}},"code":"\n    console.log(cb_obj.value);\n    \n\n\n\n\n\n"},"id":"c5192114-0232-4d1b-8049-1189d429088a","type":"CustomJS"},{"attributes":{"children":[{"id":"48ee1007-9ff9-42af-aff5-7331b7a44f96","type":"DataTable"}],"height":280,"width":525},"id":"692033db-d21f-4838-a6dd-74e3e496399d","type":"WidgetBox"},{"attributes":{"callback":{"id":"c5192114-0232-4d1b-8049-1189d429088a","type":"CustomJS"},"options":["PtID","Measure","MeasureMD","PatientMD","Value"],"title":"Select Measure Metadata Columns:"},"id":"3dfaea72-e100-42e0-af21-dbabe57d653d","type":"MultiSelect"},{"attributes":{},"id":"b51bd6f7-acfb-4bb5-bdc1-1f08cbc11b7e","type":"StringFormatter"},{"attributes":{},"id":"540cdeec-c8ef-41c9-8e6f-453db426f838","type":"StringEditor"},{"attributes":{"children":[{"id":"3dfaea72-e100-42e0-af21-dbabe57d653d","type":"MultiSelect"}]},"id":"24349ff0-8ef1-4b78-bf03-b58b1b94b8b6","type":"WidgetBox"},{"attributes":{"editor":{"id":"40af2afb-b468-4d71-bef2-7fa3baef2653","type":"StringEditor"},"field":"MeasureMD","formatter":{"id":"ded25e12-f220-4567-8d73-5ee671ef5887","type":"StringFormatter"},"title":"MeasureMD","width":100},"id":"82169fbb-a569-47e3-b1f6-334a43cc2b9d","type":"TableColumn"}],"root_ids":["1b4ccec3-99ea-4b6d-9131-f7c024184b67"]},"title":"Bokeh Application","version":"0.12.10"}};
+                  var render_items = [{"docid":"3fba9c65-6009-477b-9a53-f8bb7645a134","elementid":"7aa61508-c4a2-477b-8426-e19b578d0384","modelid":"1b4ccec3-99ea-4b6d-9131-f7c024184b67"}];
+              
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                }
+              
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      embed_document(root);
+                      clearInterval(timer);
+                    }
+                    attempts++;
+                    if (attempts > 100) {
+                      console.log("Bokeh: ERROR: Unable to embed document because BokehJS library is missing")
+                      clearInterval(timer);
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+        
+        </script>
+    </body>
+</html>

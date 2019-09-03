@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MetaVis: Interactive Exploratory Visualizations </title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/homepage.css" rel="stylesheet">
+	<link href="css/checkboxes.css" rel="stylesheet">
+	<link href="css/button.css" rel="stylesheet">
+	<link href="css/upload.css" rel="stylesheet">
+    <link href="css/multiple-select.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+	<link href="css/upload.css" rel="stylesheet">
+	<script src="vendor/jquery/jquery.min.js"></script>
+  <script src="js/jquery_upload.js"></script>
+  <script src="js/jquery-csv.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/multiple-select.js"></script>
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">MetaVis</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#specifications">Specifications</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#upload">Visualize your data</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1>MetaVis: Interactive Exploratory Visualizations</h1>
+        <p class="lead">An in-depth interactive visualization tool which integrates metadata to flexibly produce novel insight.</p>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>About MetaVis</h2>
+            <p class="lead">MetaVis is a interactive visualization tool developed for internal Fred Hutch usage to enhance exploratory analysis and provide a wider and cleaner perspective on various problem spaces. The tool includes:</p>
+            <ul>
+              <li>Direct data import through web interface</li>
+              <li>Interactive heatmap with flexible selection options</li>
+			  <li>Responsive data table population upon heatmap selection</li>
+              <li>Interchangeable colorbar and metadata visualizations</li>
+              <li>Optional data filtering capabilities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+	  <!-- Buttons code start from here -->
+<div class="container">
+	<div class="row">
+        <div class="col-lg-8 mx-auto">
+            <p><a href="demo.html" class="btn btn-outlined btn-primary">Example</a></p>
+        </div>
+	</div>
+</div>
+    </section>
+
+    <section id="specifications" class="bg-light">
+      <div class="container">
+		<div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Data Specifications</h2>
+            <p class="lead">For usage, data provided must meet the following specifications:</p>
+  			<p> 3 separate .csv files containing base data, row metadata, and column metadata respectively</p>
+        OR
+        <p style='margin-top:10px;'> 1 .csv file containing longform data with metadata columns included </p>
+
+  			<li> Proper formatting for each file (correct number of rows/columns necessary) </li>
+  			<li> For optimum performance, rows/columns should not exceed 300</li>
+			<br />
+			<hr size=16>
+          </div>
+		</div>
+		<div class="container">
+			<div class="row">
+		      <div class="col-lg-8 mx-auto">
+			    <h5>Data Formatting Examples</h5>
+			  </div>
+			</div>
+			<div class="row">
+			<div class="col-xs mx-5"> </div>
+			<div class="col-xs mx-5"> </div>
+
+
+			<div class="col-xs px-10 mr-3">
+				<p><a href="data/base_VTN097.csv" class="btn btn-outlined btn-primary">Base Data</a></p>
+			</div>
+			<div class="col-xs mx-3">
+				<p><a href="data/column_metadata_VTN097.csv" class="btn btn-outlined btn-primary">Row metadata</a></p>
+			</div>
+			<div class="col-xs mx-3">
+				<p><a href="data/row_metadata_VTN097.csv" class="btn btn-outlined btn-primary">Column metadata</a></p>
+			</div>
+			</div>
+		</div>
+      </div>
+    </section>
+
+    <section id="upload">
+
+		  <div class="container">
+		   <div class="row">
+		   <div class="col-lg-8 mx-auto">
+
+			 <h2>Visualize your data</h2>
+			  <p class="lead"> Select files from your computer</p>
+				<form id="metavis" action="/viz" enctype="multipart/form-data" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <div id='uploads'>
+                    <p class="btn btn-outlined btn-primary" style="margin-right:25px" onclick="display('longform', 'wideform')">Longform Data Upload</p>
+                    <p class="lead" style="display:inline;"> OR </p>
+                    <p class="btn btn-outlined btn-primary" style="margin-left:25px" onclick="display('wideform', 'longform')">Wideform Data Upload</p>
+                        </div>
+                    <div id='longform' class="hidden">
+                    <label class="control-label col-sm-5">Longform Data:</label>
+                      <div class="col-sm-8">
+                        <input id='lfFile' type="file" class="form-control" name="longformFile">
+                      </div>
+                      <div id='colnames' style='padding-left:15px; padding-top:10px; padding-bottom:10px' class='hidden'>
+                          <p id="warning" class='warning'> </p>
+                          <p style='margin-bottom:0px;font-size:20px'> Row Index </p>
+                          <select id='rowindex' name='rowIndex' multiple='multiple' style='width:457px; display: block;'>
+                          </select>
+                          <p style='margin-bottom:0px;font-size:20px;margin-top:10px;'> Column Index </p>
+                          <select id='colindex' name='colIndex' multiple='multiple' style='width:457px; display: block;'> </select>
+                          <p style='margin-bottom:0px;font-size:20px;margin-top:10px;'> Heatmap Value Column </p>
+                          <select class='hidden' id='value' name='value' multiple='multiple' style='width:457px;'>
+                          </select>
+                          <section id="metabutton" style='position:absolute;left:510px;top:232px' class="btn btn-outlined btn-primary"> View Metadata Candidates </section>
+                          <div id="rowmeta-cont" class='hidden'>
+                              <p style='margin-bottom:0px;font-size:20px;margin-top:10px;'> Row metadata </p>
+                              <select id='rowmeta' name='rowMeta' multiple='multiple' style='width:457px; display: block;'> </select>
+                          </div>
+                          <div id="colmeta-cont" class='hidden'>
+                              <p style='margin-bottom:0px;font-size:20px;margin-top:10px;'> Column metadata </p>
+                              <select id='colmeta' name='colMeta' multiple='multiple' style='width:457px; display: block;'> </select>
+                          </div>
+                      </div>
+                      <div id="metaModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <div class="modal-header" style='background-color:#05D27E;'>
+                          <span id="close-modal2" class="close">&times;</span>
+                          <h2 style="position:relative;left:10px;line-height:1.5;margin-bottom:0px;">Step 3: Select Metadata</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container" id="modal-cont">
+                            </div>
+                            <div class="btn btn-outlined btn-primary next" id="next3"> Exit X
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="indexModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <span id="close-modal1" class="close">&times;</span>
+                        <h3 style="position:relative;left:10px;line-height:1.5;margin-bottom:0px;">Step 1: Select your indices</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="container" id="modal2-cont">
+                              <h6> Select columns from your dataset to serve as your rows and columns for MetaVis: </h6>
+                              <p id='info'> <span id='success'></span> You are currently encapsulating <span id='count'></span> of <span id='total'></span> data points. <span id='subinfo'> </span></p>
+                              <p style='margin-bottom:5px;font-size:20px;margin-top:20px;'> Row Index </p>
+                              <select id='row-modal-index' name='rowModalIndex' multiple='multiple' style='width:90%; display: block;'>
+                              </select>
+                              <p style='margin-bottom:5px;font-size:20px;margin-top:30px;'> Column Index </p>
+                              <select id='col-modal-index' name='colModalIndex' multiple='multiple' style='width:90%; display: block;'>
+                              </select>
+                              <hr />
+                              <h5> OR </h5>
+                              <hr />
+                              <h6> Select a preset from a this list </h6>
+                              <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Presets
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <span class="dropdown-item" id="preset-bama">BAMA</span> 
+                              </div>
+                              </div>
+                          </div>
+                          <div class="btn btn-outlined btn-primary next" id="next1"> Next ->
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div id="valueModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <div class="modal-header" style='background-color:#CD4A4C;'>
+                        <span id="close-modal3" class="close">&times;</span>
+                        <h3 style="position:relative;left:10px;line-height:1.5;margin-bottom:0px;">Step 2: Select your value column</h3>
+                      </div>
+                      <div class="modal-body">
+                          <div class="container" id="modal3-cont" style='min-height:250px'>
+                              <h6> Select a column from your dataset to serve as your values for the MetaVis heatmap:</h6>
+                              <p style='margin-bottom:5px;font-size:20px;margin-top:40px;'> Value Column </p>
+                              <select id='value-modal' name='valueModal' multiple='multiple' style='width:90%; display: block;'>
+                              </select>
+                          </div>
+                          <div class="btn btn-outlined btn-primary next" id="next2"> Next ->
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+                      <div id='wideform' class='hidden'>
+                      <label class="control-label col-sm-2">Base data:</label>
+                      <div class="col-sm-8">
+                        <input id='dataFile' type="file" class="form-control" name="dataFile">
+                      </div>
+                      <label class="control-label col-sm-5">Row metadata:</label>
+                      <div class="col-sm-8">
+                        <input id='row_mdFile' type="file" class="form-control" name="row_mdFile">
+                      </div>
+                      <label class="control-label col-sm-5">Column metadata:</label>
+                      <div class="col-sm-8">
+                        <input id='col_mdFile' type="file" class="form-control" name="col_mdFile">
+                      </div>
+                      <label class="control-label col-sm-10">Untransformed raw base data (Optional):</label>
+                      <div class="col-sm-8">
+                        <input type="file" class="form-control" name="raw_dataFile">
+                      </div>
+                    </div>
+                    <p class ="lead" style="margin-top: 30px;"> Supplementary Customization Options </p>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="standardize"> Standardize columns</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="impute"> Impute missing values (vs. drop)</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label><input type="checkbox" name="static"> Render static image</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-5">Clustering options:</label>
+                      <div class="col-sm-offset-2 col-sm-10">
+                          <label class="control-label col-sm-5">Distance metric:</label>
+                          <div class="col-sm-offset-2 col-sm-10">
+                                <select name="metric">
+                                  <option value="euclidean">euclidean</option>
+                                  <option value="correlation">correlation</option>
+                                </select>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                          <label class="control-label col-sm-15">Hierarchical clustering linkage method:</label>
+                          <div class="col-sm-offset-2 col-sm-10">
+                                <select name="method">
+                                  <option value="complete">complete</option>
+                                  <option value="single">single</option>
+                                  <option value="ward">Ward</option>
+                                  <option value="average">Avg/UPGMA</option>
+                                </select>
+                          </div>
+                      </div>
+                    </div>
+
+                    <label class="control-label col-sm-15">Transformation to Apply to Heatmap Rate Values</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                      </div>
+                      <select class="transformation" name='transformation'>
+                        <option selected value="none">None</option>
+                        <option value="quantile">Quantile</option>
+                        <option value="power">Power</option>
+                        <option value="logarithmic">Logarithmic</option>
+                      </select>
+                      <input type="text" name='param1' class="form-control" placeholder="Parameter 1">
+                      <input type="text" name='param2' class="form-control" placeholder="Parameter 2">
+                      <input type="text" name='param3' class="form-control" placeholder="Parameter 3">
+                    </div>
+
+                    <div id="runModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content" style="min-height:200px">
+                        <div class="modal-header" style='background-color:#CD4A4C;'>
+                          <span id="close-modal4" class="close">&times;</span>
+                          <h3 style="position:relative;left:10px;line-height:1.5;margin-bottom:0px;">Your visualization is loading..</h3>
+                        </div>
+                        <div class="modal-body">
+                          <div> <span id="dupes" class="hidden"></span> </div>
+                          <div class="loading">
+                            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <input id="run" type="submit" value="Run MetaVis" class="btn btn-outlined btn-primary" style="">
+                      </div>
+                    </div>
+				</form>
+			</div>
+		   </div>
+		   </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; MetaVis 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/modal.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  </body>
+
+</html>
